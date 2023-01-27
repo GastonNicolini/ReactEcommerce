@@ -1,10 +1,14 @@
-import CartWidget from "./components/CartWidget";
+import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 
-
 function App() {
-  const [count, setCount] = useState(0)
+  return (
+    <>
+      <NavBar />
+      <ItemListContainer greeting="Greetings from App" />
+    </>
+  );
 
-}
+};
 
-export default App
+export default App;

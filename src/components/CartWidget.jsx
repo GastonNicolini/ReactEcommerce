@@ -2,8 +2,10 @@ import React from 'react'
 
 const CartWidget = () => {
   return (
-    <div>CartWidget</div>
+    <div>
+      <span className="material-symbols-outlined">shopping_cart</span>
+    </div>
   )
-}
+};
 
-export default CartWidget
+export default CartWidget;
