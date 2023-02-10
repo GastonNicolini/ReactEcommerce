@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "name": "Laptops"
+    },
+    {
+      "id": 2,
+      "name": "Processors"
+    },
+    {
+      "id": 3,
+      "name": "Video Cards"
+    },
+    {
+      "id": 4,
+      "name": "RAM"
+    },
+    {
+      "id": 5,
+      "name": "Storage"
+    }
+]

@@ -1,0 +1,12 @@
+.body {
+    min-height: calc(100vh - 64px - 122px);
+}
+ 
+
+.item__container__image {
+    height: 10rem;
+    width: auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}

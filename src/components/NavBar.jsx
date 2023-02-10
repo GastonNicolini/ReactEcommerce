@@ -1,50 +1,74 @@
 import CartWidget from './CartWidget'
-import { Container, Flex, Spacer, Box, Heading, Text, VStack, Center } from '@chakra-ui/react'
-import { Menu, MenuButton, MenuList, MenuItem, Button, Grid } from '@chakra-ui/react'
+import { 
+  Container, 
+  Flex, 
+  Spacer, 
+  Box, 
+  Heading,
+  Stack,
+  Menu, 
+  MenuButton, 
+  MenuList,
+  MenuItem,
+  Button, 
+  Grid
+} from '@chakra-ui/react'
+import { Link, NavLink } from 'react-router-dom';
+import { ChevronDownIcon } from '@chakra-ui/icons'
+import categories from '../categories.json'
 
 export const NavBar = () => {
+
   return (
     <>
       <Container maxW="100vw" bg="#0A070D" h="4rem">
         <Flex alignContent="center" align="center" h="4rem">
           <Box p="2" color="white">
-            <Heading size="md">Hacker's Corner</Heading>
+            <Link to={`/`}><Heading size="md">Hacker's Corner</Heading></Link>
           </Box>
           <Spacer />
             <Box>
-              <Grid templateColumns='repeat(5, 1fr)' gap={3}>
+              <Grid templateColumns='repeat(4, 1fr)' gap={3} align='center'>
                 <Menu>
-                  <Button colorScheme='teal' variant='ghost'>
-                    <a href="#">Home</a>
-                  </Button>
-                  <MenuButton as={Button} colorScheme='teal' variant='ghost'>
+
+                  <NavLink to={`/`}>
+                    <Button colorScheme='teal' variant='ghost'>
+                      Home
+                    </Button>
+                  </NavLink>
+
+                  <MenuButton as={Button} colorScheme='teal' variant='ghost' rightIcon={<ChevronDownIcon />}>
                     Categories
                   </MenuButton>
+
                   <MenuList>
-                    <a href="#"><MenuItem>Laptops</MenuItem></a>
-                    <a href="#"><MenuItem>Processors</MenuItem></a>
-                    <a href="#"><MenuItem>Video Cards</MenuItem></a>
-                    <a href="#"><MenuItem>RAM</MenuItem></a>
-                    <a href="#"><MenuItem>Storage</MenuItem></a>
+                    {categories.map((category) =>(
+                      <NavLink key={category.id} to={`/category/${category.name}`}>
+                        <MenuItem>{category.name}</MenuItem>
+                      </NavLink>
+                    ))}
                   </MenuList>
-                  <Button colorScheme='teal' variant='ghost'>
-                    <a href="#">Offers</a>
-                  </Button>
-                  <Button colorScheme='teal' variant='ghost'>
-                    <a href="#">All Products</a>
-                  </Button>
-                  <Button colorScheme='teal' variant='ghost'>
-                    <a href="#">Help</a>
-                  </Button>
+                  
+                  <NavLink to={`/offers`}>
+                    <Button colorScheme='teal' variant='ghost'>
+                      Offers
+                    </Button>
+                  </NavLink>
+                  
+                  <NavLink to={`/help`}>
+                    <Button colorScheme='teal' variant='ghost'>
+                      Help
+                    </Button>
+                  </NavLink>
                 </Menu>
               </Grid>
             </Box>
           <Spacer />
-          <a href="#">
+          <Link to={`/Cart`}>
             <Box p="2" color="white">
-              <CartWidget />
+              <CartWidget /> 
             </Box>
-          </a>
+          </Link>
         </Flex>
       </Container>
     </>

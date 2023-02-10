@@ -1,0 +1,52 @@
+[
+    {
+      "id": 1,
+      "name": "Notebook HP 14-cf2531la",
+      "price": 112999,
+      "description":"14\" Screen Laptop",
+      "stock": 4,
+      "category": "Laptops",
+      "image": "../src/images/HP_14.png",
+      "imageAlt":"Laptop HP 14 Inches Image"
+    },
+    {
+      "id": 2,
+      "name": "GeForce RTX 4080 Gaming X Trio",
+      "price": 939000,
+      "description":"Placa de video Nvidia MSI Gaming X GeForce RTX 40 Series",
+      "stock": 5,
+      "category": "Video Cards",
+      "image": "../src/images/RTX_4080.png",
+      "imageAlt":"Video Card RTX 4080 Image"
+    },
+    {
+      "id": 3,
+      "name": "Lenovo IdeaPad 15IML05",
+      "price": 149999,
+      "description":"15,6\" Screen Laptop",
+      "stock": 10,
+      "category": "Laptops",
+      "image": "../src/images/Lenovo_15.png",
+      "imageAlt":"Laptop Lenovo IdeaPad Image"
+    },
+    {
+      "id": 4,
+      "name": "Corsair Vengeance RAM 8GB",
+      "price": 8000,
+      "description":"Memoria Ram Rgb 8gb",
+      "stock": 14,
+      "category": "RAM",
+      "image": "../src/images/Corsair_Vengeance.png",
+      "imageAlt":"Corsair Vengeance RAM Image"
+    },
+    {
+      "id": 5,
+      "name": "Memoria RAM Fury Beast 16GB",
+      "price": 25999,
+      "description":"DDR4 SDRAM",
+      "stock": 9,
+      "category": "RAM",
+      "image": "../src/images/Kingston_Fury.png",
+      "imageAlt":"RAM Image"
+    }
+  ]
