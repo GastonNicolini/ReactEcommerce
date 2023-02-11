@@ -3,7 +3,6 @@ import React from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ item }) => {
-  console.log(item)
   return (
     <Container className='body'>
       <div>
