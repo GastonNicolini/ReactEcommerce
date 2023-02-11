@@ -1,4 +1,4 @@
 ﻿# ReactEcommerce
 
 Page use example:
-![](https://imgur.com/a/AEYx7ia)
+![](https://github.com/GastonNicolini/ReactJs-Ecommerce/blob/main/src/images/React_Ecommerce_Use_Case.gif)
