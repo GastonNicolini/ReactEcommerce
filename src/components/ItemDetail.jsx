@@ -6,7 +6,7 @@ const ItemDetail = ({ item }) => {
   console.log(item)
   return (
     <Container className='body'>
-      <div className='item__container__image'>
+      <div>
         <Image src={ item.image } alt={ item.imageAlt } borderRadius='lg'/>
       </div>
       <Text>

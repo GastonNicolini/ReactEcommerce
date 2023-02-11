@@ -36,10 +36,8 @@ const ItemDetailContainer = () => {
     const prod = prodIdFilter[0];
 
     return (
-      <>
-        <Container className='body'>
-          <ItemDetail item={prod}/>
-        </Container>
+      <>        
+        <ItemDetail item={prod}/>
       </>
     )
   }
