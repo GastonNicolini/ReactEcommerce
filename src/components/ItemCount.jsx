@@ -35,7 +35,7 @@ const ItemCount = ({ stock }) => {
           <Button 
           _hover={{ bg: '#f5f5f5' }}
           bg='#f5f5f5'
-          onClick={ stockWarningToast(tooMuchId, 'No more stock available') }>+</Button>
+          onClick={() => stockWarningToast(tooMuchId, 'No more stock available') }>+</Button>
         </Flex>
       </Container>
     )

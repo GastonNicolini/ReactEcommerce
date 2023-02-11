@@ -1,8 +1,22 @@
-import { Button, Container, Image, ButtonGroup, Text } from '@chakra-ui/react'
+import { Button, Container, Image, ButtonGroup, Text, useToast } from '@chakra-ui/react'
 import React from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ item }) => {
+  const toast = useToast();
+  const addedItemId = 'addedItemToast'
+
+  const addedItemToast = (id, message) => {
+    if (!toast.isActive(id)) {
+      toast ({
+        id,
+        title: message,
+        status: 'success',
+        isClosable: true,
+      })
+    }
+  }
+
   return (
     <Container className='body'>
       <div>
@@ -19,7 +33,7 @@ const ItemDetail = ({ item }) => {
       </Text>
       <ItemCount stock={ item.stock } />
       <ButtonGroup spacing='2'>
-        <Button variant='ghost' colorScheme='blue'>
+        <Button variant='ghost' colorScheme='blue' onClick={() => addedItemToast(addedItemId, "The item was added to your cart 👍")}>
           Add to cart
         </Button>
       </ButtonGroup>
