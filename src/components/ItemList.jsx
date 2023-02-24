@@ -7,7 +7,7 @@ const ItemList = ({ products }) => {
     <>
       <Container p={10}>
         <Flex justifyContent="center">
-          { products.map((prod) => (
+          { products?.map((prod) => (
             <Item 
               key={prod.id}
               id={prod.id}

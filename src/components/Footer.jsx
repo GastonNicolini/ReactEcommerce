@@ -7,7 +7,7 @@ import { ImTwitter, ImFacebook2, ImWhatsapp, ImInstagram, ImYoutube } from 'reac
 const Footer = () => {
   return (
     <>
-      <Container maxW="100vw" bg="#0A070D">
+      <Container maxW="100vw" bg="#262626">
         <Stack align='center'>
           <Box p={5}>
             <Text color='white'>@Copyright 2023</Text>

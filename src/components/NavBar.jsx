@@ -11,7 +11,8 @@ import {
   MenuList,
   MenuItem,
   Button, 
-  Grid
+  Grid,
+  Image
 } from '@chakra-ui/react'
 import { Link, NavLink } from 'react-router-dom';
 import { ChevronDownIcon } from '@chakra-ui/icons'
@@ -21,10 +22,12 @@ export const NavBar = () => {
 
   return (
     <>
-      <Container maxW="100vw" bg="#0A070D" h="4rem">
+      <Container maxW="100vw" bg="#262626" h="4rem">
         <Flex alignContent="center" align="center" h="4rem">
           <Box p="2" color="white">
-            <Link to={`/`}><Heading size="md">Hacker's Corner</Heading></Link>
+            <Link to={`/`}>
+              <Image h="3.2rem" src="./src/images/hackers-corner-logo.png" alt="Hacker's Corner Logo"/>
+            </Link>
           </Box>
           <Spacer />
             <Box>
@@ -42,7 +45,7 @@ export const NavBar = () => {
                   </MenuButton>
 
                   <MenuList>
-                    {categories.map((category) =>(
+                    {categories?.map((category) =>(
                       <NavLink key={category.id} to={`/category/${category.name}`}>
                         <MenuItem>{category.name}</MenuItem>
                       </NavLink>
