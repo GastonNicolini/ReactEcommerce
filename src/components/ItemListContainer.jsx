@@ -1,57 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import { Container } from '@chakra-ui/react';
+import { Container, Wrap, WrapItem } from '@chakra-ui/react';
 import ItemList from './ItemList';
 import products from '../products.json'
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 
 const ItemListContainer = (props) => {
   const { category } = useParams();
+  const [products, setProduct] = useState([]);
+  const [stock, setStock] = useState([]);
 
-  // async function fetchingData() {
-  //   try {
-  //     const dataFetched = await getData();
-  //   } catch (err) {
-  //     console.log(err);
+  useEffect(() => {
+    const db = getFirestore();
+    
+    const itemsCollection = collection(db, "products");
+    console.log("items", itemsCollection)
+    getDocs (itemsCollection).then((snapshot) => {
+      if (snapshot) {
+        const docs = snapshot.docs.map((doc) => doc.data());
+        setProduct(docs);
+        setStock(docs.stock);
+      }
+    });
+  }, []);
+  
+  // const showProducts = new Promise((resolve, reject) => {
+  //   if (products.length > 0) {
+  //     setTimeout(() => {
+  //       resolve(products);
+  //     }, 1);
+  //   } else {
+  //     reject("No products were found")
   //   }
-  // }
-  // fetchingData();
+  // })
 
-  const showProducts = new Promise((resolve, reject) => {
-    if (products.length > 0) {
-      setTimeout(() => {
-        resolve(products);
-      }, 2000);
-    } else {
-      reject("No products were found")
-    }
-  })
-
-  showProducts
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-  if (category === undefined) {
-    return (
-      <Container className='body'>
-        <ItemList products= { products }/>
-      </Container>
-    );
-  } else {
     const catFilter = products.filter((prod) => prod.category === category);
-    console.log(catFilter);
     return (
       <>
-        <Container className='body'>
-          { catFilter ? (<ItemList products={catFilter}/>) : (<ItemList products={products}/>) }
+        <Container className='section'>
+          { category ? (<ItemList products={catFilter}/>) : (<ItemList products={products}/>) }
         </Container>
       </>
     )
-  }
 
 };
 

@@ -1,29 +1,43 @@
-import { Container, Text } from '@chakra-ui/react';
-import React from 'react'
+import { Container, Text, useStatStyles } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import products from '../products.json'
 import ItemDetail from './ItemDetail';
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import Loading from './Loading';
+
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [stock, setStock] = useState(0);
 
-  const showProducts = new Promise((resolve, reject) => {
-    if (products.length > 0) {
-      setTimeout(() => {
-        resolve(products);
-      }, 2000);
-    } else {
-      reject("No products were found")
-    }
-  })
+  
+  useEffect(() => {
+    // Getting database information
+    const db = getFirestore();
 
-  showProducts
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+    const oneItem = doc(db, "products", id)
+    getDoc(oneItem).then((snapshot) => {
+      if (snapshot.exists()) {
+        const docs = snapshot.data();
+        setProduct(docs);
+        setLoading(false);
+        setStock(docs.stock);
+      }
+    })
+  }, [])
+
+  // const showProducts = new Promise((resolve, reject) => {
+  //   if (products.length > 0) {
+  //     setTimeout(() => {
+  //       resolve(products);
+  //     }, 2000);
+  //   } else {
+  //     reject("No products were found")
+  //   }
+  // })
 
   if (id === undefined) {
     return (
@@ -32,12 +46,10 @@ const ItemDetailContainer = () => {
       </Text>
     );
   } else {
-    const prodIdFilter = products.filter((prod) => prod.id == id);
-    const prod = prodIdFilter[0];
-
+    
     return (
       <>        
-        <ItemDetail item={prod}/>
+        {loading ? <Loading /> : <ItemDetail item={product} stock={stock} /> }
       </>
     )
   }

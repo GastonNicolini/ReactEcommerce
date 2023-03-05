@@ -18,21 +18,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 
-const Item = ({ id, name, description, price, stock, category, image, imageAlt}) => {
-  const toast = useToast();
-  const addedItemId = 'addedItemToast'
-
-  const addedItemToast = (id, message) => {
-    if (!toast.isActive(id)) {
-      toast ({
-        id,
-        title: message,
-        status: 'success',
-        isClosable: true,
-      })
-    }
-  }
-  
+const Item = ({ id, name, description, price, stock, category, image, imageAlt}) => { 
   return (
     <Container className="item__container">
       <Card key={ id } maxW='sm'>
@@ -42,9 +28,6 @@ const Item = ({ id, name, description, price, stock, category, image, imageAlt})
           </div>
           <Stack mt='6' spacing='3'>
             <Link to={`/item/${ id }`}><Heading size='md'>{ name }</Heading></Link>
-            <Text>
-              { description }
-            </Text>
             <Text color='blue.600' fontSize='2xl'>
               ${ price.toLocaleString('es-AR') }
             </Text>
@@ -55,14 +38,12 @@ const Item = ({ id, name, description, price, stock, category, image, imageAlt})
         </CardBody>
         <Divider />
         <CardFooter>
-          <ItemCount stock={ stock } />
           <ButtonGroup spacing='2'>
-            {/* <Button variant='solid' colorScheme='blue'>
-              Buy now
-            </Button> */}
-            <Button variant='ghost' colorScheme='blue' onClick={() => addedItemToast(addedItemId, "The item was added to your cart 👍")}>
-              Add to cart
-            </Button>
+            <Link to={`/item/${ id }`}>
+              <Button w="15rem" variant='ghost' colorScheme='blue'>
+                Details
+              </Button>
+            </Link>
           </ButtonGroup>
         </CardFooter>
       </Card>

@@ -26,7 +26,7 @@ export const NavBar = () => {
         <Flex alignContent="center" align="center" h="4rem">
           <Box p="2" color="white">
             <Link to={`/`}>
-              <Image h="3.2rem" src="./src/images/hackers-corner-logo.png" alt="Hacker's Corner Logo"/>
+              <Image h="3.2rem" src="../src/images/hackers-corner-logo.png" alt="Hacker's Corner Logo"/>
             </Link>
           </Box>
           <Spacer />
