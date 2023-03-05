@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 const Checkout = () => {
   return (
     <Container p={5} className='section'>
-      <Card p={7}>
+      <Card p={7} className='card--shadow'>
         <Flex direction='column'>
           <Heading pb={4} >Complete with your information</Heading>
-          <FormControl>
+          <FormControl isRequired>
             <div className='section__form__name'>
               <Box w='49%' pb={4}>
                 <FormLabel mb={1}>First Name</FormLabel>
