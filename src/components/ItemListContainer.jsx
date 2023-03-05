@@ -8,7 +8,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = (props) => {
   const { category } = useParams();
-  const [products, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
   const [stock, setStock] = useState([]);
 
   useEffect(() => {
@@ -17,13 +17,13 @@ const ItemListContainer = (props) => {
     const itemsCollection = collection(db, "products");
     console.log("items", itemsCollection)
     getDocs (itemsCollection).then((snapshot) => {
-      if (snapshot) {
+        setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})));
         const docs = snapshot.docs.map((doc) => doc.data());
-        setProduct(docs);
         setStock(docs.stock);
-      }
     });
   }, []);
+
+  console.log('products', products)
   
   // const showProducts = new Promise((resolve, reject) => {
   //   if (products.length > 0) {

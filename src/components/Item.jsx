@@ -21,7 +21,7 @@ import ItemCount from './ItemCount';
 const Item = ({ id, name, description, price, stock, category, image, imageAlt}) => { 
   return (
     <Container className="item__container">
-      <Card key={ id } maxW='sm'>
+      <Card key={ id } maxW='sm' className='card--shadow'>
         <CardBody>
           <div className='item__container__image'>
             <Image src={ image } alt={ imageAlt } borderRadius='lg'/>

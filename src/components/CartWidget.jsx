@@ -10,7 +10,7 @@ const CartWidget = () => {
     <div>
       <Flex>
         <span className="material-symbols-outlined">shopping_cart</span>
-        {cartTotalQuantity()}
+        {cartTotalQuantity() > 0 && cartTotalQuantity()}
       </Flex>
     </div>
   )

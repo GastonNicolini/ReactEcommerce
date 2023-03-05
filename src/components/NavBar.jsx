@@ -52,9 +52,9 @@ export const NavBar = () => {
                     ))}
                   </MenuList>
                   
-                  <NavLink to={`/offers`}>
+                  <NavLink to={`/about`}>
                     <Button colorScheme='teal' variant='ghost'>
-                      Offers
+                      About Us
                     </Button>
                   </NavLink>
                   
