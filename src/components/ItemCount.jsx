@@ -12,7 +12,6 @@ const ItemCount = ({ stock, onAdd }) => {
   const tooMuchId = 'tooMuchToast';
   const addedItemId = 'addedItemToast';
   
-  console.log(itemStock)
   // Functions to show error toast
   const stockWarningToast = (id, error) => {
     if (!toast.isActive(id)) {
@@ -66,7 +65,7 @@ const ItemCount = ({ stock, onAdd }) => {
   }
 
   return (
-    <Container>
+    <Container className='item__counter__finish'>
       <Flex w={'100%'} alignItems='center' gap='4' justifyContent="flex-start" pt={10}>
         <Button bg='#d7d7d7' onClick={() => decreaseQuantity() }>-</Button>
         <Text>{ counter }</Text>
@@ -75,7 +74,7 @@ const ItemCount = ({ stock, onAdd }) => {
           Add to cart
         </Button>
       </Flex>
-      <Box pt={4}>
+      <Box pt={4} >
         { added ? <Link to={'/Cart'}><Button w='100%' colorScheme='green'>Finish shopping</Button></Link> : null }
       </Box>
     </Container>

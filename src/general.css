@@ -105,3 +105,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.section__item__data .item__counter__finish {
+    max-width: 100%;
+}
+
+.section.section--login {
+    min-width: 35vw;
+}

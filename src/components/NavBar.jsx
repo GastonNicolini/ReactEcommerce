@@ -17,8 +17,22 @@ import {
 import { Link, NavLink } from 'react-router-dom';
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import categories from '../categories.json'
+import { useEffect, useState } from 'react';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 export const NavBar = () => {
+  // const [categories, setCategories] = useState([]);
+
+  // useEffect (() => {
+  //   const db = getFirestore();
+
+  //   const categoryCollection = collection(db, "category");
+  //   getDocs (categoryCollection).then((snapshot) => {
+  //     setCategories(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
+  //   });
+  // })
+
+  console.log(categories)
 
   return (
     <>
@@ -31,7 +45,7 @@ export const NavBar = () => {
           </Box>
           <Spacer />
             <Box>
-              <Grid templateColumns='repeat(4, 1fr)' gap={3} align='center'>
+              <Grid templateColumns='repeat(5, 1fr)' gap={3} align='center'>
                 <Menu>
 
                   <NavLink to={`/`}>
@@ -63,10 +77,16 @@ export const NavBar = () => {
                       Help
                     </Button>
                   </NavLink>
+
                 </Menu>
               </Grid>
             </Box>
           <Spacer />
+          <NavLink to={`/login`}>
+            <Button colorScheme='teal' variant='ghost'>
+              Login
+            </Button>
+          </NavLink>
           <Link to={`/Cart`}>
             <Box p="2" color="white">
               <CartWidget /> 

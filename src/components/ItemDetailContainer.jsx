@@ -12,22 +12,34 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [stock, setStock] = useState(0);
-
+  const db = getFirestore();
   
-  useEffect(() => {
-    // Getting database information
-    const db = getFirestore();
+  // useEffect(() => {
+  //   // Getting database information
+  //   const db = getFirestore();
 
-    const oneItem = doc(db, "products", id)
-    getDoc(oneItem).then((snapshot) => {
-      if (snapshot.exists()) {
-        setProduct({ id: snapshot.id, ...snapshot.data() });
-        const docs = snapshot.data();
-        setLoading(false);
-        setStock(docs.stock);
-      }
-    })
-  }, [])
+  //   const oneItem = doc(db, "products", id)
+  //   getDoc(oneItem).then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       setProduct({ id: snapshot.id, ...snapshot.data() });
+  //       const docs = snapshot.data();
+  //       setLoading(false);
+  //       setStock(docs.stock);
+  //     }
+  //   })
+  // }, [])
+
+  useEffect(() => {
+    async function fetchData() {
+      const querySnapshot = await getDoc(doc(db, "products", id));
+      setProduct({ id: querySnapshot.id, ...querySnapshot.data() });
+      const docs = querySnapshot.data();
+      console.log(docs)
+      setLoading(false);
+      setStock(docs.stock);
+    }
+    fetchData();
+  }, []); 
 
   // const showProducts = new Promise((resolve, reject) => {
   //   if (products.length > 0) {

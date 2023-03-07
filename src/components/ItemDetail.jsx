@@ -9,7 +9,6 @@ const ItemDetail = ({ item, stock }) => {
   const onAdd = (quantity) => {
     addItem(item, quantity);
   }
-  let stockValue = item.stock
 
   return (
     <Container className='section' p={10}>
@@ -26,7 +25,7 @@ const ItemDetail = ({ item, stock }) => {
               </Text>
               <Text pt={2}>Stock: { item.stock }</Text>
             </div>
-            <ItemCount stock={ stock ? stock : null  } onAdd={onAdd} />
+            <ItemCount stock={ stock } onAdd={onAdd} />
           </div>
         </Flex>
         <Text p={10}>{ item.description }</Text>        

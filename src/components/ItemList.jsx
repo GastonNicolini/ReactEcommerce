@@ -3,12 +3,14 @@ import React from 'react'
 import Item from './Item'
 
 const ItemList = ({ products }) => {
+  console.log('prod', products)
   return (
     <>
       <Container p={10}>
         <Flex justifyContent="center">
           { products?.map((prod) => (
             <Item 
+
               key={prod.id}
               id={prod.id}
               alt={prod.alt}
