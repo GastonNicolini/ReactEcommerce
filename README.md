@@ -23,4 +23,4 @@ Para este proyecto se debe instalar:
 
 
 Page use example:
-![](https://github.com/GastonNicolini/ReactJs-Ecommerce/blob/main/src/images/React_Ecommerce_Use_Case.gif)
+![](https://github.com/GastonNicolini/ReactJs-Ecommerce/blob/main/src/images/React_Ecommerce_Use_Case_Final.gif)
