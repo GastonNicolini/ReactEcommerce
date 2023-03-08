@@ -51,7 +51,7 @@ const Cart = () => {
           {/* <Button onClick={() => clearCart() }>
             Remove All Items
           </Button> */}
-          <Button onClick={ onOpen }>
+          <Button colorScheme={'red'} onClick={ onOpen }>
             Remove All Items
           </Button>
 

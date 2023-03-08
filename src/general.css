@@ -110,6 +110,28 @@
     max-width: 100%;
 }
 
-.section.section--login {
-    min-width: 35vw;
+.section__form__data--half input,
+.section__form__data input{
+    padding: 8px 20px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 1px;
+}
+
+.section__form__data--half {
+    width: 49%;
+    padding-bottom: 1rem;
+}
+
+.item__container__image__fill {
+    object-fit: contain;
+    height: 15rem;
+    width: 100%;
+}
+
+.section--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

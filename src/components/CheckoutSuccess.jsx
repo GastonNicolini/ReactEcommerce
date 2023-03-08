@@ -1,7 +1,7 @@
-import { Card, Center, Container, Flex, Heading, Image } from '@chakra-ui/react'
+import { Card, Center, Container, Flex, Heading, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
-const CheckoutSuccess = () => {
+const CheckoutSuccess = ({ order }) => {
   return (
     <Container className='section section--success'>
       <Center>
@@ -10,6 +10,7 @@ const CheckoutSuccess = () => {
             <Flex direction="column" alignItems={'center'}>
               <Image w='200px' src='./src/images/success.svg'/>
               <Heading p={10}>Your order has been placed successfully 😀</Heading>
+              <Text>Your order number is { order }</Text>
             </Flex>
           </Center>
         </Card>

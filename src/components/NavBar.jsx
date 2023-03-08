@@ -82,11 +82,6 @@ export const NavBar = () => {
               </Grid>
             </Box>
           <Spacer />
-          <NavLink to={`/login`}>
-            <Button colorScheme='teal' variant='ghost'>
-              Login
-            </Button>
-          </NavLink>
           <Link to={`/Cart`}>
             <Box p="2" color="white">
               <CartWidget /> 

@@ -24,7 +24,7 @@ const Item = ({ id, name, description, price, stock, category, image, imageAlt})
       <Card key={ id } maxW='sm' className='card--shadow'>
         <CardBody>
           <div className='item__container__image'>
-            <Image src={ image } alt={ imageAlt } borderRadius='lg'/>
+            <Image className='item__container__image__fill' src={ image } alt={ imageAlt } borderRadius='lg'/>
           </div>
           <Stack mt='6' spacing='3'>
             <Link to={`/item/${ id }`}><Heading size='md'>{ name }</Heading></Link>

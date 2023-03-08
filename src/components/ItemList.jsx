@@ -1,4 +1,4 @@
-import { Container, Flex } from '@chakra-ui/react';
+import { Container, Flex, Text } from '@chakra-ui/react';
 import React from 'react'
 import Item from './Item'
 
@@ -6,6 +6,8 @@ const ItemList = ({ products }) => {
   console.log('prod', products)
   return (
     <>
+      { products.length != 0 
+      ? 
       <Container p={10}>
         <Flex justifyContent="center">
           { products?.map((prod) => (
@@ -24,6 +26,13 @@ const ItemList = ({ products }) => {
           ))}
         </Flex>
       </Container>
+      :
+      <Container className='section section--emptyCart'>
+        <div className='section__content'>
+          <Text p={'1rem'}>I'm sorry, there's no items available to buy on this category right now 😔</Text>
+        </div>
+      </Container>
+      }
     </>
   )
 };

@@ -10,8 +10,6 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import CheckoutSuccess from "./components/CheckoutSuccess";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -33,8 +31,6 @@ function App() {
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path='/checkout' element={<Checkout />} />
             <Route exact path='/checkoutSuccess' element={<CheckoutSuccess />} />
-            <Route exact path='/login' element={<Login />} />
-            <Route exact path='/signup' element={<Signup />} />
           </Routes>
 
           <Footer />

@@ -27,7 +27,7 @@ const CartItem = ({ item, id, alt, name, description, price, stock, category, im
             <Text pl={2} color='blue.600' fontSize='2xl'>
                 ${ (price * quantity).toLocaleString('es-AR') }
             </Text>
-            <Button onClick={ () => removeItem(id) }>
+            <Button colorScheme={'red'} onClick={ () => removeItem(id) }>
               Remove
             </Button>
           </div>

@@ -4,12 +4,14 @@ import { Container, Wrap, WrapItem } from '@chakra-ui/react';
 import ItemList from './ItemList';
 import products from '../products.json'
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+import Loading from './Loading';
 
 
 const ItemListContainer = (props) => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [stock, setStock] = useState([]);
+  const [loading, setLoading] = useState(true);
   const db = getFirestore();
 
   useEffect(() => {
@@ -18,6 +20,7 @@ const ItemListContainer = (props) => {
       setProducts(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})));
       const docs = querySnapshot.docs.map((doc) => doc.data());
       setStock(docs.stock);
+      setLoading(false);
     }
     fetchData();
   }, []); 
@@ -26,7 +29,7 @@ const ItemListContainer = (props) => {
   return (
     <>
       <Container className='section'>
-        { category ? (<ItemList products={catFilter}/>) : (<ItemList products={products}/>) }
+        { loading ? <Loading /> : ( category ? (<ItemList products={catFilter}/>) : (<ItemList products={products}/>) ) }
       </Container>
     </>
   )
